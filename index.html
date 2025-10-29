@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Basics - DOM Manipulation & Events</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    
+    <nav class="navigation">
+        <div class="nav-container">
+            <div class="nav-items">
+                <a href="#part1" class="nav-item active">Intro</a>
+                <a href="#part2" class="nav-item">DOM</a>
+                <a href="#part3" class="nav-item">Events</a>
+                <a href="#part4" class="nav-item">Project</a>
+            </div>
+            <button class="cta-button">Let's Explore</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <p class="section-label">ASSIGNMENT #6</p>
+            <h1 class="hero-title">JavaScript Basics<br>DOM Manipulation & Events</h1>
+            <p class="student-info">Bek Madias • SE-2430</p>
+        </div>
+    </header>
+
+    <div class="separator"></div>
+
+    <!-- Part 1: Introduction to JavaScript -->
+    <section id="part1" class="content-section">
+        <div class="container">
+            <p class="section-label">PART 1</p>
+            <h2 class="section-title">Introduction to JavaScript</h2>
+            
+            <!-- Task 0 -->
+            <div class="task-card">
+                <div class="task-header">
+                    <span class="task-number">00</span>
+                    <h3>First Script</h3>
+                </div>
+                <div class="task-content">
+                    <p>Console output and alert demonstration</p>
+                    <button class="action-button" onclick="task0()">Run Task 0</button>
+                    <div class="output-box" id="task0-output"></div>
+                </div>
+            </div>
+
+            <!-- Task 1 -->
+            <div class="task-card">
+                <div class="task-header">
+                    <span class="task-number">01</span>
+                    <h3>Variables & Operators</h3>
+                </div>
+                <div class="task-content">
+                    <p>Working with different data types and operations</p>
+                    <button class="action-button" onclick="task1()">Run Task 1</button>
+                    <div class="output-box" id="task1-output"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <!-- Part 2: DOM Manipulation -->
+    <section id="part2" class="content-section">
+        <div class="container">
+            <p class="section-label">PART 2</p>
+            <h2 class="section-title">DOM Manipulation</h2>
+            
+            <!-- Task 2 -->
+            <div class="task-card">
+                <div class="task-header">
+                    <span class="task-number">02</span>
+                    <h3>Changing Content</h3>
+                </div>
+                <div class="task-content">
+                    <p id="task2-paragraph">This is the original paragraph text. Click the button to change it!</p>
+                    <button class="action-button" onclick="task2()">Change Text</button>
+                </div>
+            </div>
+
+            <!-- Task 3 -->
+            <div class="task-card">
+                <div class="task-header">
+                    <span class="task-number">03</span>
+                    <h3>Changing Styles</h3>
+                </div>
+                <div class="task-content">
+                    <div id="task3-box" class="styled-box">
+                        This is a styled container. Try changing my appearance!
+                    </div>
+                    <div class="button-group">
+                        <button class="action-button" onclick="task3ChangeColor()">Change Color</button>
+                        <button class="action-button secondary" onclick="task3ChangeFontSize()">Change Font Size</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 4 -->
+            <div class="task-card">
+                <div class="task-header">
+                    <span class="task-number">04</span>
+                    <h3>Creating & Removing Elements</h3>
+                </div>
+                <div class="task-content">
+                    <ul id="task4-list" class="item-list">
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ul>
+                    <div class="button-group">
+                        <button class="action-button" onclick="task4AddItem()">Add Item</button>
+                        <button class="action-button secondary" onclick="task4RemoveItem()">Remove Item</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <!-- Part 3: Events -->
+    <section id="part3" class="content-section">
+        <div class="container">
+            <p class="section-label">PART 3</p>
+            <h2 class="section-title">Events</h2>
+            
+            <!-- Task 5 -->
+            <div class="task-card">
+                <div class="task-header">
+                    <span class="task-number">05</span>
+                    <h3>Mouse Events</h3>
+                </div>
+                <div class="task-content">
+                    <div id="task5-box" class="hover-box" 
+                         onmouseover="task5MouseOver()" 
+                         onmouseout="task5MouseOut()">
+                        Hover over me!
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 6 -->
+            <div class="task-card">
+                <div class="task-header">
+                    <span class="task-number">06</span>
+                    <h3>Keyboard Events</h3>
+                </div>
+                <div class="task-content">
+                    <input type="text" id="task6-input" class="text-input" 
+                           placeholder="Type something..." onkeyup="task6KeyUp()">
+                    <div class="output-box" id="task6-output">Your text will appear here...</div>
+                </div>
+            </div>
+
+            <!-- Task 7 -->
+            <div class="task-card">
+                <div class="task-header">
+                    <span class="task-number">07</span>
+                    <h3>Calculator</h3>
+                </div>
+                <div class="task-content">
+                    <div class="calculator">
+                        <input type="number" id="calc-num1" class="calc-input" placeholder="Number 1">
+                        <input type="number" id="calc-num2" class="calc-input" placeholder="Number 2">
+                        <div class="button-group calc-buttons">
+                            <button class="calc-button" onclick="calculate('+')">+</button>
+                            <button class="calc-button" onclick="calculate('-')">−</button>
+                            <button class="calc-button" onclick="calculate('*')">×</button>
+                            <button class="calc-button" onclick="calculate('/')">÷</button>
+                        </div>
+                        <div class="calc-result" id="calc-result">Result: 0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <!-- Part 4: Mini Project -->
+    <section id="part4" class="content-section">
+        <div class="container">
+            <p class="section-label">PART 4</p>
+            <h2 class="section-title">Mini Project — Interactive To-Do List</h2>
+            
+            <!-- Task 8 -->
+            <div class="task-card">
+                <div class="task-header">
+                    <span class="task-number">08</span>
+                    <h3>Build a To-Do App</h3>
+                </div>
+                <div class="task-content">
+                    <div class="todo-app">
+                        <div class="todo-input-container">
+                            <input type="text" id="todo-input" class="text-input" 
+                                   placeholder="Enter a new task...">
+                            <button class="action-button" onclick="addTask()">Add Task</button>
+                        </div>
+                        <ul id="todo-list" class="todo-list"></ul>
+                        <div class="todo-stats" id="todo-stats">
+                            <span>Total: 0</span>
+                            <span>Completed: 0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="section-label">SUMMARY</p>
+            <p class="footer-text">This assignment demonstrates fundamental JavaScript concepts including DOM manipulation, event handling, and building interactive web applications. All tasks completed successfully.</p>
+            <p class="footer-copyright">© 2025 Bek Madias • SE-2430</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,612 @@
+/* ===================================
+   GLOBAL RESET & BASE STYLES
+   =================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-primary: #f8f8f8;
+    --bg-white: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --border-color: #e0e0e0;
+    --accent-color: #000000;
+    --hover-bg: #f0f0f0;
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ===================================
+   CUSTOM CURSOR
+   =================================== */
+
+.custom-cursor {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50% 50% 0 50%;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10000;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* ===================================
+   NAVIGATION
+   =================================== */
+
+.navigation {
+    position: sticky;
+    top: 0;
+    background: rgba(248, 248, 248, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+    padding: 1.5rem 0;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-items {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    transition: var(--transition-smooth);
+}
+
+.nav-item:hover {
+    color: var(--text-primary);
+    background: var(--bg-white);
+}
+
+.nav-item.active {
+    color: var(--text-primary);
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-light);
+}
+
+.cta-button {
+    background: var(--bg-white);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-light);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* ===================================
+   HERO SECTION
+   =================================== */
+
+.hero {
+    padding: 8rem 3rem 6rem;
+    text-align: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+}
+
+.student-info {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* ===================================
+   SEPARATOR
+   =================================== */
+
+.separator {
+    height: 1px;
+    background: var(--border-color);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ===================================
+   CONTENT SECTIONS
+   =================================== */
+
+.content-section {
+    padding: 6rem 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+}
+
+/* ===================================
+   TASK CARDS
+   =================================== */
+
+.task-card {
+    background: var(--bg-white);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-smooth);
+}
+
+.task-card:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-4px);
+}
+
+.task-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.task-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+    line-height: 1;
+}
+
+.task-header h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.task-content {
+    padding-left: 4.5rem;
+}
+
+.task-content > p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+/* ===================================
+   BUTTONS
+   =================================== */
+
+.action-button {
+    background: var(--accent-color);
+    color: var(--bg-white);
+    border: none;
+    padding: 0.875rem 2rem;
+    border-radius: 50px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-light);
+}
+
+.action-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.action-button.secondary {
+    background: var(--bg-white);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+/* ===================================
+   OUTPUT & INPUT ELEMENTS
+   =================================== */
+
+.output-box {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+    min-height: 60px;
+}
+
+.text-input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: var(--transition-smooth);
+    background: var(--bg-white);
+}
+
+.text-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+/* ===================================
+   TASK-SPECIFIC STYLES
+   =================================== */
+
+/* Task 3 - Styled Box */
+.styled-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 3rem;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    transition: var(--transition-smooth);
+}
+
+/* Task 4 - Item List */
+.item-list {
+    list-style: none;
+    padding: 0;
+}
+
+.item-list li {
+    background: var(--bg-primary);
+    padding: 1rem 1.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: var(--transition-smooth);
+}
+
+.item-list li:hover {
+    background: var(--bg-white);
+    transform: translateX(4px);
+}
+
+/* Task 5 - Hover Box */
+.hover-box {
+    background: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    padding: 4rem;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+/* Task 7 - Calculator */
+.calculator {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.calc-input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 1.125rem;
+    background: var(--bg-white);
+}
+
+.calc-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.calc-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.calc-button {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.calc-button:hover {
+    background: var(--accent-color);
+    color: var(--bg-white);
+    transform: scale(1.05);
+}
+
+.calc-result {
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+}
+
+/* Task 8 - To-Do App */
+.todo-app {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.todo-input-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.todo-input-container .text-input {
+    flex: 1;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+    min-height: 200px;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-white);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 0.75rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: var(--transition-smooth);
+}
+
+.todo-item:hover {
+    box-shadow: var(--shadow-light);
+    transform: translateX(4px);
+}
+
+.todo-item.completed {
+    opacity: 0.6;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+.todo-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.todo-checkbox {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.todo-text {
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.todo-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.todo-delete {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.todo-delete:hover {
+    background: #ff4444;
+    color: white;
+    border-color: #ff4444;
+}
+
+.todo-stats {
+    display: flex;
+    justify-content: space-around;
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.todo-stats span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+
+.footer {
+    background: var(--bg-white);
+    padding: 6rem 3rem 3rem;
+    margin-top: 4rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-text {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 800px;
+    margin-bottom: 2rem;
+}
+
+.footer-copyright {
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1.5rem;
+    }
+
+    .hero {
+        padding: 4rem 1.5rem 3rem;
+    }
+
+    .content-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .task-card {
+        padding: 1.5rem;
+    }
+
+    .task-content {
+        padding-left: 0;
+    }
+
+    .task-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .calc-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .todo-input-container {
+        flex-direction: column;
+    }
+
+    .custom-cursor {
+        display: none;
+    }
+}
+
+/* ===================================
+   ANIMATIONS
+   =================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task-card {
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.item-list li,
+.todo-item {
+    animation: slideIn 0.3s ease-out;
+}
